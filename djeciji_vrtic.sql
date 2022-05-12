@@ -1,7 +1,11 @@
 # linija koja počne s hash (shift + 3) je komentar
 # Ovo je SQL skripta
 # naredba za izvođenje
-# C:\xampp\mysql\bin\mysql -uroot < C:\Users\Filip\Documents\druga_domaca_zadaca\djeciji_vrtic.sql
+# C:\xampp\mysql\bin\mysql -uroot < C:\Users\Filip\Documents\Domaca_zadaca\djeciji_vrtic.sql
+
+#U dječjem vrtiću postoji više odgojnih skupina. Svaka odgojna skupina ima više djece i vodi ih jedna odgajateljica. Odgajateljica ima jednu stručnu spremu.
+
+
 drop database if exists djeciji_vrtic;
 
 create database djeciji_vrtic;
@@ -11,21 +15,24 @@ use djeciji_vrtic;
 create table odgajateljica (
     sifra int not null primary key auto_increment,
     osoba int not null,
-    oib varchar(15),
-    skupina varchar (10) not null,
-    strucna_sprema varchar(20)
+    oib char(11),
+    email VARCHAR(50),
+    strucna_sprema varchar(20),
+    pocetak_smjene datetime,
+    kraj_smjene datetime
 );
 
 create table skupina (
     sifra int not null primary key auto_increment,
     naziv_skupine varchar(20) not null,
-    broj_djece varchar(3),
+    broj_djece varchar(20),
     odgajateljica int not null
 );
 
 create table djete (
     sifra int not null primary key auto_increment,
     osoba int not null,
+    oib VARCHAR(50),
     skupina int not null
 );
 
@@ -50,8 +57,12 @@ alter table
 add
     FOREIGN KEY (skupina) REFERENCES skupina(sifra);
 
+
 #alter Table odgajateljica add FOREIGN KEY (skupina) REFERENCES skupina(sifra);
 
-insert into osoba (ime) values ('Anamarija');
+insert into osoba (ime, prezime)
+ values ('Anamarija', 'Antić');
 
-insert into osoba (prezime) values ('Perić');
+insert into osoba (ime,prezime) 
+values ('Pero','Perić');
+

@@ -1,49 +1,67 @@
 # linija koja počne s hash (shift + 3) je komentar
 # Ovo je SQL skripta
 # naredba za izvođenje
-# C:\xampp\mysql\bin\mysql -uroot < C:\Users\Filip\Documents\druga_domaca_zadaca\udruga_za_zastitu_zivotinja.sql
+# C:\xampp\mysql\bin\mysql -uroot < C:\Users\Filip\Documents\Domaca_zadaca\udruga_za_zastitu_zivotinja.sql
+
+#U udruzu radi više osoba. Jedna osoba se brine za jednog ili više štićenika udruge. Štićenici udruge su životinje. Svaki štićenik se nalazi u jednom prostoru.
+
 
 drop database if exists udruga_za_zastitu_zivotinja;
 create database udruga_za_zastitu_zivotinja;
 use udruga_za_zastitu_zivotinja;
 create table djelatnik (
     sifra int not null primary key auto_increment,
-    osoba int not null, 
-    oib varchar(15)
+    ime VARCHAR(30) not NULL,
+    prezime VARCHAR(30) not NULL,
+    email VARCHAR(50),
+    oib char(11),
+    pocetak_radnog_vremena datetime,
+    zavrsetak_radnog_vremena datetime
+
+   
 );
 
-create table sticenici (
+create table sticenik (
     sifra int not null primary key auto_increment,
-    zivotinja varchar(20) not null,
-    prostor int not null,
-    djelatnik int not null
+    djelatnik int not NULL,
+    vrsta_sticenika int not null,
+    prostor int not null
+  
 );
 
 create table prostor (
     sifra int not null primary key auto_increment,
-    naziv_prostorije VARCHAR(50)not null,
-    djelatnik int not null
+dimenzije_prostorije VARCHAR (50),
+naziv VARCHAR(50)
+    
+
 );
 
 
-create table osoba (
+create TABLE vrsta_sticenika (
+sifra int not null PRIMARY key auto_increment,
+ime VARCHAR(30),
+vrsta_zivotinje VARCHAR(30),
+rasa VARCHAR (30)
+);
+
+
+
+create table udruga  (
     sifra int not null primary key auto_increment,
-    ime varchar(50) not null,
-    prezime varchar(50) not null,
-    email varchar(50),
-    oib char(11)
+    adresa VARCHAR(50),
+    djelatnik int not null
+
+    
 );
 
-# definiranje vanjskih ključeva
+#
 
-alter table djelatnik add foreign key (osoba) REFERENCES osoba(sifra);
-ALTER TABLE sticenici add FOREIGN KEY (prostor) REFERENCES prostor(sifra);
-alter table prostor add FOREIGN KEY (djelatnik) REFERENCES djelatnik(sifra);
+alter table sticenik add foreign key (djelatnik) REFERENCES djelatnik(sifra);
 
+alter table sticenik add foreign key (vrsta_sticenika) REFERENCES vrsta_sticenika(sifra);
 
-insert into osoba (ime)
-values ('Anamarija');
+alter table sticenik add foreign key (prostor) REFERENCES prostor(sifra);
 
-insert into osoba (prezime)
-values ('Perić');
+alter table udruga add foreign key (djelatnik) REFERENCES djelatnik(sifra);
 

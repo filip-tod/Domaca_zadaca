@@ -1,7 +1,7 @@
 # linija koja počne s hash (shift + 3) je komentar
 # Ovo je SQL skripta
 # naredba za izvođenje
-# C:\xampp\mysql\bin\mysql -uroot < C:\Users\Filip\Documents\druga_domaca_zadaca\frizerski_salon.sql
+# C:\xampp\mysql\bin\mysql -uroot < C:\Users\Filip\Documents\Domaca_zadaca\frizerski_salon.sql
 
 
 #U frizerskom salonu radi više djelatnica. Jedna djelatnica na dan radi s više korisnika.

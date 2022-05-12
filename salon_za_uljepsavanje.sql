@@ -1,8 +1,8 @@
 # linija koja počne s hash (shift + 3) je komentar
 # Ovo je SQL skripta
 # naredba za izvođenje
-# C:\xampp\mysql\bin\mysql -uroot < C:\Users\Filip\Documents\druga_domaca_zadaca\salon_za_uljepsavanje.sql
-#Salon za uljepšavanje
+# C:\xampp\mysql\bin\mysql -uroot < C:\Users\Filip\Documents\Domaca_zadaca\salon_za_uljepsavanje.sql
+
 #U salonu za uljepšavanje radi više djelatnica. Jedna djelatnica na dan radi s više korisnika. Korisnik tijekom jednog posjeta koristi jednu usluga.
 
 drop database if exists salon_za_uljepsavanje;
@@ -11,12 +11,12 @@ use salon_za_uljepsavanje;
 create table djelatnica (
     sifra int not null primary key auto_increment,
     osoba int not null, 
-    iban varchar(15)
+    iban varchar(21)
 );
 
 create table musterija (
     sifra int not null primary key auto_increment,
-    osoba varchar(20) not null,
+    osoba int not null,
     usluga int not null,
     djelatnica int not null,
     termin datetime
@@ -32,9 +32,9 @@ create table usluga (
 
 create table osoba (
     sifra int not null primary key auto_increment,
-    ime varchar(50) not null,
-    prezime varchar(50) not null,
-    email varchar(50),
+    ime varchar(20) not null,
+    prezime varchar(20) not null,
+    email varchar(40),
     oib char(11)
 );
 
@@ -42,16 +42,16 @@ create table osoba (
 
 alter table musterija add foreign key (djelatnica) REFERENCES djelatnica(sifra);
 ALTER TABLE musterija add FOREIGN KEY (usluga) REFERENCES usluga(sifra);
-alter table musterija add FOREIGN KEY (usluga) REFERENCES usluga(sifra);
 
+alter TABLE musterija add FOREIGN KEY (osoba) REFERENCES osoba(sifra);
 
 alter table djelatnica ADD FOREIGN KEY (osoba) REFERENCES osoba(sifra);
 
 
 
-insert into osoba (ime)
-values ('Anamarija');
+insert into osoba (ime, prezime)
+values ('Anamarija', 'perić');
 
-insert into osoba (prezime)
-values ('Perić');
+insert into osoba (ime, prezime)
+values ('pero', 'Antić');
 
