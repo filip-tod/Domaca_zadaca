@@ -1,7 +1,9 @@
 # linija koja počne s hash (shift + 3) je komentar
 # Ovo je SQL skripta
 # naredba za izvođenje
-# C:\xampp\mysql\bin\mysql -uroot < C:\Users\Filip\Documents\druga_domaca_zadaca\samostan.sql
+# C:\xampp\mysql\bin\mysql -uroot < C:\Users\Filip\Documents\Domaca_zadaca\samostan.sql
+
+#U samostanu se nalaze svećenici. Svaki svećenik je zadužen za više poslova. Jedan posao u isto vrijeme može obavljati više svećenika. Svaki svećenik ima samo jednog nadređenog svećenika.
 
 drop database if exists samostan;
 create database samostan;
@@ -15,9 +17,7 @@ create table svecenik (
 
 create table poslovi (
     sifra int not null primary key auto_increment,
-    osoba varchar(20) not null,
-    usluge int not null,
-    svecenik int not null,
+    vrsta_posla VARCHAR(50),
     termin datetime
 );
 
@@ -41,16 +41,18 @@ create table osoba (
 # definiranje vanjskih ključeva
 
 alter table svecenik add foreign key (osoba) REFERENCES osoba(sifra);
-ALTER TABLE nadredeni_svecenik add FOREIGN KEY (osoba) REFERENCES osoba(sifra);
+ALTER TABLE svecenik add FOREIGN KEY (poslovi) REFERENCES poslovi(sifra);
+
+alter table nadredeni_svecenik ADD FOREIGN KEY (osoba) REFERENCES osoba(sifra);
+
+alter table nadredeni_svecenik ADD FOREIGN KEY (svecenik) REFERENCES svecenik(sifra);
 
 alter table nadredeni_svecenik ADD FOREIGN KEY (poslovi) REFERENCES poslovi(sifra);
 
-alter table svecenik ADD FOREIGN KEY (poslovi) REFERENCES poslovi(sifra);
 
 
+#insert into osoba (ime)
+#values ('Anamarija');
 
-insert into osoba (ime)
-values ('Anamarija');
-
-insert into osoba (prezime)
-values ('Perić');
+#insert into osoba (prezime)
+#values ('Perić');
