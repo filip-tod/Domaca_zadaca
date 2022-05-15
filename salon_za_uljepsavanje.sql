@@ -59,10 +59,10 @@ values ('Pero', 'Perić', 'pero.peric@gmail.com','37281487492');
 ## USLUGA ##
 
 insert into usluga (naziv_usluge, cijena)
-values ('šišanje', '40,99');
+values ('Pedikera', '40,99');
 
 insert into usluga ( naziv_usluge, cijena)
-VALUES ('brijanje', '30,99');
+VALUES ('Manikura', '30,99');
 
 ## DJELATNICA ##
 
