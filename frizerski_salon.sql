@@ -53,7 +53,7 @@ alter table djelatnica ADD FOREIGN KEY (osoba) REFERENCES osoba(sifra);
 
 #!# OSOBA #!#
 insert into osoba (ime, prezime, email, oib)
-values ('Anamarija', 'Anić', 'anamarija.anic@gmail.com','27230195827');
+values ('Anamarija', 'Anić', 'anamarija.anic@gmail.com','27230195827'); 
 
 insert into osoba (ime, prezime, email, oib)
 values ('Pero', 'Perić', 'pero.peric@gmail.com','37281487492');
