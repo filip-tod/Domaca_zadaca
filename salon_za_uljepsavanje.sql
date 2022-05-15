@@ -26,7 +26,7 @@ create table usluga (
     sifra int not null primary key auto_increment,
     naziv_usluge VARCHAR(50)not null,
     cijena decimal(3,2),
-    trajanje int not null
+    trajanje int 
 );
 
 
@@ -49,9 +49,38 @@ alter table djelatnica ADD FOREIGN KEY (osoba) REFERENCES osoba(sifra);
 
 
 
-insert into osoba (ime, prezime)
-values ('Anamarija', 'perić');
+#!# OSOBA #!#
+insert into osoba (ime, prezime, email, oib)
+values ('Anamarija', 'Anić', 'anamarija.anic@gmail.com','27230195827');
 
-insert into osoba (ime, prezime)
-values ('pero', 'Antić');
+insert into osoba (ime, prezime, email, oib)
+values ('Pero', 'Perić', 'pero.peric@gmail.com','37281487492');
+
+## USLUGA ##
+
+insert into usluga (naziv_usluge, cijena)
+values ('šišanje', '40,99');
+
+insert into usluga ( naziv_usluge, cijena)
+VALUES ('brijanje', '30,99');
+
+## DJELATNICA ##
+
+INSERT into djelatnica (osoba, iban)
+values (1,'HR8200041242845847023');
+
+INSERT into djelatnica (osoba, iban)
+values (2,'HR0500041242515847023');
+
+## Mušterija ##
+
+INSERT into musterija (osoba, djelatnica, usluga, termin)
+values (1,1,1,'2022-05-22 16:15:23');
+
+INSERT into musterija (osoba, djelatnica, usluga, termin)
+values (1,1,2,'2022-05-22 15:11:23');
+
+INSERT into musterija (osoba, djelatnica, usluga, termin)
+values (2,2,1,'2022-05-22 17:15:23');
+
 
