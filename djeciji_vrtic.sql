@@ -15,7 +15,6 @@ use djeciji_vrtic;
 create table odgajateljica (
     sifra int not null primary key auto_increment,
     osoba int not null,
-    oib char(11),
     email VARCHAR(50),
     strucna_sprema varchar(20),
     pocetak_smjene datetime,
@@ -32,7 +31,8 @@ create table skupina (
 create table djete (
     sifra int not null primary key auto_increment,
     osoba int not null,
-    oib VARCHAR(50),
+    pocetak_smjene datetime,
+    kraj_smjene datetime,
     skupina int not null
 );
 
@@ -40,7 +40,6 @@ create table osoba (
     sifra int not null primary key auto_increment,
     ime varchar(50) not null,
     prezime varchar(50) not null,
-    email varchar(50),
     oib char(11)
 );
 
@@ -58,11 +57,26 @@ add
     FOREIGN KEY (skupina) REFERENCES skupina(sifra);
 
 
-#alter Table odgajateljica add FOREIGN KEY (skupina) REFERENCES skupina(sifra);
+alter Table odgajateljica add FOREIGN KEY (osoba) REFERENCES osoba(sifra);
 
-insert into osoba (ime, prezime)
- values ('Anamarija', 'Antić');
+## ODGAJATELJICE I DJECA ##
 
-insert into osoba (ime,prezime) 
-values ('Pero','Perić');
+
+insert into osoba (ime, prezime, oib )
+values ('Marija', 'Marić', '81274523049'); ## ODgajateljica ##
+
+insert into osoba (ime, prezime, oib )
+values ('Melita', 'Milić','Marija', '61274553021'); ## Odgajateljica ##
+
+
+insert into osoba (ime, prezime, oib )
+values ('Marko', 'Marušić','21274523010'); ## djete ## 
+
+
+insert into osoba (ime, prezime, oib )
+values ('Magdalena', 'Brkić' '11274523029'); ## djete ##
+
+
+
+
 

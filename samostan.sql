@@ -54,5 +54,4 @@ alter table nadredeni_svecenik ADD FOREIGN KEY (poslovi) REFERENCES poslovi(sifr
 #insert into osoba (ime)
 #values ('Anamarija');
 
-#insert into osoba (prezime)
-#values ('Perić');
+
