@@ -22,7 +22,7 @@ create table musterija (
     osoba int not NULL,
     usluga int not null,
     djelatnica int not null,
-    termin datetime not null
+    termin datetime 
 );
 
 create table usluga (
@@ -51,17 +51,38 @@ alter table musterija add FOREIGN KEY(osoba) REFERENCES osoba(sifra);
 alter table djelatnica ADD FOREIGN KEY (osoba) REFERENCES osoba(sifra);
 
 
+#!# OSOBA #!#
+insert into osoba (ime, prezime, email, oib)
+values ('Anamarija', 'Anić', 'anamarija.anic@gmail.com','27230195827');
 
-insert into osoba (ime, prezime, email)
-values ('Anamarija', 'Anić', 'anamarija.anic@gmail.com');
+insert into osoba (ime, prezime, email, oib)
+values ('Pero', 'Perić', 'pero.peric@gmail.com','37281487492');
 
-insert into osoba (ime, prezime, email)
-values ('Pero', 'Perić', 'pero.peric@gmail.com');
+## USLUGA ##
 
 insert into usluga (naziv_usluge, cijena)
 values ('šišanje', '40,99');
 
 insert into usluga ( naziv_usluge, cijena)
 VALUES ('brijanje', '30,99');
+
+## DJELATNICA ##
+
+INSERT into djelatnica (osoba, iban)
+values (1,'HR8200041242845847023');
+
+INSERT into djelatnica (osoba, iban)
+values (2,'HR0500041242515847023');
+
+## Mušterija ##
+
+INSERT into musterija (osoba, djelatnica, usluga, termin)
+values (1,1,1,'2022-05-22 16:15:23');
+
+INSERT into musterija (osoba, djelatnica, usluga, termin)
+values (1,1,2,'2022-05-22 15:11:23');
+
+INSERT into musterija (osoba, djelatnica, usluga, termin)
+values (2,2,1,'2022-05-22 17:15:23');
 
 
