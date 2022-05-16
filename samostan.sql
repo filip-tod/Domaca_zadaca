@@ -3,7 +3,8 @@
 # naredba za izvođenje
 # C:\xampp\mysql\bin\mysql -uroot < C:\Users\Filip\Documents\Domaca_zadaca\samostan.sql
 
-#U samostanu se nalaze svećenici. Svaki svećenik je zadužen za više poslova. Jedan posao u isto vrijeme može obavljati više svećenika. Svaki svećenik ima samo jednog nadređenog svećenika.
+#U samostanu se nalaze svećenici. Svaki svećenik je zadužen za više poslova. 
+#Jedan posao u isto vrijeme može obavljati više svećenika. Svaki svećenik ima samo jednog nadređenog svećenika.
 
 drop database if exists samostan;
 create database samostan;
@@ -51,7 +52,43 @@ alter table nadredeni_svecenik ADD FOREIGN KEY (poslovi) REFERENCES poslovi(sifr
 
 
 
-#insert into osoba (ime)
-#values ('Anamarija');
+insert into osoba ( ime ,prezime, email, oib)
+values ('ivan', 'Pavao', 'ivan.pavao@gmail.com', '67560128274'); #SVEĆENIK # 1 #
+
+insert into osoba ( ime ,prezime, email, oib)
+values ('Matej', 'Matijević', 'matej.matijevic@gmail.com', '57183746876'); #Svećenik # 2 #
+
+insert into osoba ( ime ,prezime, email, oib)
+values ('Albert', 'Antić', 'albert.antic@gmail.com', '26710099059'); #nadređeni svećenik # 3 #
+
+insert into osoba ( ime ,prezime, email, oib)
+values ('Bruno', 'Brnić', 'bruno.brnic@gmail.com', '87559436057'); #nadređeni svećenik # 4 #
 
 
+## POSLOVI ##
+
+insert into poslovi (vrsta_posla, termin)   
+values ('Misa', 2022-05-22-20-11-23);   ## posao 1 ##
+
+insert into poslovi (vrsta_posla, termin)
+values ('sahrana', 2022-05-22-14-11-23);  ## posao 2 ##
+
+
+## Svećenik ##
+
+INSERT into svecenik ( osoba, poslovi, certificiran)
+values (1, 1, 'Svećenik');
+
+INSERT into svecenik ( osoba, poslovi, certificiran)
+values (2, 2, 'Svećenik');
+
+ ## Nadređeni svećenik ##
+
+ insert into nadredeni_svecenik ( osoba, svecenik, poslovi)
+ values (3,1,1);
+
+
+ insert into nadredeni_svecenik ( osoba, svecenik, poslovi)
+ values (4,2,2);
+
+ ## GG ##

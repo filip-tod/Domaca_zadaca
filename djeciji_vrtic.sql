@@ -79,10 +79,10 @@ values ('Magdalena', 'Brkić', '11274523029'); ## djete ##
 
 ## odgajateljica ##
 insert into odgajateljica (osoba, email, strucna_sprema, pocetak_smjene, kraj_smjene )
-values (1, 'marija.maric@gmail.com', 'Odgajateljica','2022-05-22 06:15:00','2022-05-22 15:10:00');
+values (1, 'marija.maric@gmail.com', 'Odgajateljica',2022-05-22-06-15-00, 2022-05-13-15-10-00);
 
 insert into odgajateljica (osoba, email, strucna_sprema, pocetak_smjene, kraj_smjene )
-values (2, 'melita.milic@gmail.com', 'Odgajateljica','2022-05-22 06:15:00','2022-05-22 15:10:00');
+values (2, 'melita.milic@gmail.com', 'Odgajateljica',2022-05-22-06-15-00,2022-05-22-15-10-00);
 
 ## SKUPINA ##
 
@@ -95,10 +95,10 @@ values ('Jaslice', '10', 2);
 ## djete ##
 
 INSERT into djete (osoba, pocetak_smjene, kraj_smjene, skupina)
-values (3, '2022-05-22 06:15:00', '2022-05-22 15:10:00', 1);
+values (3, 2022-05-22-06-15-00, 2022-05-22-15-10-00, 1);
 
 INSERT into djete (osoba, pocetak_smjene, kraj_smjene, skupina)
-values (4, '2022-05-22 06:15:00', '2022-05-22 15:10:00', 2);
+values (4, 2022-05-22-06-15-00, 2022-05-22-15-10-00, 2);
 
 
 ## Mogao sam je unaprijediti tako što sam napravio tablicu za "radno vrijeme vrtića"

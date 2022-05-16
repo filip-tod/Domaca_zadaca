@@ -29,9 +29,8 @@ create table taksi_tvrtka (
 create table vozilo (
     sifra int not null primary key auto_increment,
     broj_sasije char(17),
-    vozac int not null,
     marka_vozila varchar(20),
-    datum_proizvodnje datetime
+    datum_proizvodnje date
     
 );
 
@@ -70,6 +69,35 @@ alter table taksi_tvrtka add FOREIGN KEY (vozilo) REFERENCES vozilo(sifra);
 
 
 
-# unos podataka
+# OSOBA #
+
+insert into osoba ( ime ,prezime, email, oib)
+values ('ivan', 'Pavao', 'ivan.pavao@gmail.com', '67560128274'); #vozač 1
+
+insert into osoba ( ime ,prezime, email, oib)
+values ('Matej', 'Matijević', 'matej.matijevic@gmail.com', '57183746876'); #vozač  2
+
+insert into osoba ( ime ,prezime, email, oib)
+values ('Albert', 'Antić', 'albert.antic@gmail.com', '26710099059'); #korisnik 1
+
+insert into osoba ( ime ,prezime, email, oib)
+values ('Bruno', 'Brnić', 'bruno.brnic@gmail.com', '87559436057'); #korisnik 2
+
+
+## VOZILO ##
+
+insert into vozilo ( broj_sasije ,marka_vozila ,datum_proizvodnje)
+values ('WF62819H2BMD25619', 'WV', 29-03-2015 );
+
+insert into vozilo ( broj_sasije ,marka_vozila ,datum_proizvodnje)
+values ('CD62819H2BMD25618', 'Dacia', 28-04-2015 );
+
+insert into vozilo ( broj_sasije ,marka_vozila ,datum_proizvodnje)
+values ('XY62819H2BMD25312', 'Renault', 02-12-2009 );
+
+insert into vozilo ( broj_sasije ,marka_vozila ,datum_proizvodnje)
+values ('CL62819H2BMD25000', 'Audu', 20-01-2019 );
+
+
 
 

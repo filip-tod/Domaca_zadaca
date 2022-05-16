@@ -77,12 +77,12 @@ values (2,'HR0500041242515847023');
 ## Mušterija ##
 
 INSERT into musterija (osoba, djelatnica, usluga, termin)
-values (1,1,1,'2022-05-22 16:15:23');
+values (1,1,1,2022-05-22-16-15-23);
 
 INSERT into musterija (osoba, djelatnica, usluga, termin)
-values (1,1,2,'2022-05-22 15:11:23');
+values (1, 1, 2, 2022-22-05-12-24-00);
 
 INSERT into musterija (osoba, djelatnica, usluga, termin)
-values (2,2,1,'2022-05-22 17:15:23');
+values (2,2,1,2022-05-22-17-15-23);
 
 
