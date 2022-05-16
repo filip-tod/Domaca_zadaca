@@ -12,18 +12,17 @@ create table vozac (
     sifra int not null primary key auto_increment,
     osoba int not null, 
     vozilo int not null,
-    korisnik int not null,
     certificiran varchar(15),
-    vrijeme_polaska datetime,
-    vrijeme_dolaska datetime
+    vrijeme_polaska time,
+    vrijeme_dolaska time
 );
 
 create table taksi_tvrtka (
     sifra int not null primary key auto_increment,
     vozac int not null,
     vozilo int not null,
-    usluga VARCHAR(20),
-    cijena decimal(3,2)
+    usluga VARCHAR(50),
+    cijena decimal(18,2)
 );
 
 create table vozilo (
@@ -38,7 +37,6 @@ create table vozilo (
 create table korisnik (
     sifra int not null PRIMARY key auto_increment,
     osoba int not NULL,
-    vozac int not null,
     cijena_voznje decimal(18,2)
 
 
@@ -56,7 +54,6 @@ create table osoba (
 # definiranje vanjskih ključeva
 
 alter table vozac add foreign key (osoba) REFERENCES osoba(sifra);
-ALTER TABLE vozac add FOREIGN KEY (korisnik) REFERENCES korisnik(sifra);
 
 alter table taksi_tvrtka ADD FOREIGN KEY (vozac) REFERENCES vozac(sifra);
 
@@ -98,6 +95,36 @@ values ('XY62819H2BMD25312', 'Renault', 02-12-2009 );
 insert into vozilo ( broj_sasije ,marka_vozila ,datum_proizvodnje)
 values ('CL62819H2BMD25000', 'Audu', 20-01-2019 );
 
+
+## vozač ##
+
+insert into vozac ( osoba, vozilo, certificiran, vrijeme_polaska, vrijeme_dolaska)
+values (1, 1,'Profesionalni-vozač', 16-25-00, 16-45-00);
+ 
+ insert into vozac ( osoba, vozilo, certificiran, vrijeme_polaska, vrijeme_dolaska)
+values (2,2,'Profesionalni-vozač', 17-00-00, 16-25-00);
+
+
+## TAXI TVRTKA ##
+
+insert into taksi_tvrtka (vozac, vozilo, usluga, cijena)
+values (1, 1, 'Zrinjevac-Retfala', 30.99 );
+
+insert into taksi_tvrtka (vozac, vozilo, usluga, cijena)
+values (2, 2, 'Bosutsko-DGO', 40.99 );
+
+# KORISNIK #
+
+insert into korisnik (osoba, cijena_voznje)
+values (3, 30.99);
+
+insert into korisnik (osoba, cijena_voznje)
+values (4, 40.99);
+
+
+
+
+## nije dobar primjer, tablice bi mogle bit bolje povezane da imaju više smisla ##
 
 
 
