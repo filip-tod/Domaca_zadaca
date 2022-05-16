@@ -14,6 +14,7 @@ create table kustos (
     ime VARCHAR(20),
     prezime VARCHAR(20),
     oib varchar(15),
+    djelo int not null,
     izlozba int not null
 
 );
@@ -28,15 +29,14 @@ create table izlozba (
 
 create table sponzor (
 sifra int not null primary key auto_increment,
-naziv_sponzora int not null,
+naziv_sponzora varchar (50),
 djelo int not null
 
 );
 create table djelo (
     sifra int not null primary key auto_increment,
-    ime varchar(50) not null,
-    ID_umjetnine varchar(50) not null,
-    kustos int not null
+    ime varchar(50),
+    ID_umjetnine char(10) 
     
 );
 
@@ -48,7 +48,78 @@ alter table izlozba add FOREIGN KEY (sponzor) REFERENCES sponzor(sifra);
 
 ALTER TABLE sponzor ADD FOREIGN KEY (djelo) REFERENCES djelo(sifra);
 
-ALTER TABLE djelo ADD FOREIGN KEY (kustos) REFERENCES kustos(sifra);
 
-#alter Table odgajateljica add FOREIGN KEY (skupina) REFERENCES skupina(sifra);
+##Djelo##
+
+INSERT into djelo ( ime, ID_umjetnine)
+values ('Monalisa', '#283719287');
+
+INSERT into djelo ( ime, ID_umjetnine)
+values ('Pogled-na-more-u-Scheveningenu', '#123719295');
+
+INSERT into djelo ( ime, ID_umjetnine)
+values ('Vrisak', '#162319212');
+
+INSERT into djelo ( ime, ID_umjetnine)
+values ('Vampir', '#292319234');
+
+INSERT into djelo ( ime, ID_umjetnine)
+values ('Vrisak', '#162319212');
+
+INSERT into djelo ( ime, ID_umjetnine)
+values ('Golub-sa-graškom', '#632319219');
+
+# SPONZOR #
+
+INSERT into sponzor ( djelo, naziv_sponzora)
+values (1, 'Adidas');
+
+INSERT into sponzor ( djelo, naziv_sponzora)
+values (2, 'Nike');
+
+INSERT into sponzor ( djelo, naziv_sponzora)
+values (3, 'Monster');
+
+INSERT into sponzor ( djelo, naziv_sponzora)
+values (4, 'Nike');
+
+INSERT into sponzor ( djelo, naziv_sponzora)
+values (5, 'Redbull');
+
+## IZLOŽBA ##
+
+INSERT into izlozba ( naziv_izlozbe, broj_umjetnina, djelo, sponzor)
+values ('Apstraktna-umjetnost', '1', 1, 1);
+
+INSERT into izlozba ( naziv_izlozbe, broj_umjetnina, djelo, sponzor)
+values ('Apstraktna-umjetnost', '2', 2, 2);
+
+INSERT into izlozba ( naziv_izlozbe, broj_umjetnina, djelo, sponzor)
+values ('Apstraktna-umjetnost', '1', 3, 3);
+
+INSERT into izlozba ( naziv_izlozbe, broj_umjetnina, djelo, sponzor)
+values ('Apstraktna-umjetnost', '2', 4, 2);
+
+INSERT into izlozba ( naziv_izlozbe, broj_umjetnina, djelo, sponzor)
+values ('Apstraktna-umjetnost', '1', 5, 5);
+
+## KUSTOS ##
+
+INSERT into kustos ( ime, prezime, oib, djelo, izlozba)
+values ('Pero', 'Perić', '38762485738', 1, 1);
+
+INSERT into kustos ( ime, prezime, oib, djelo, izlozba)
+values ('Ante', 'Antić', '67560128274', 2, 2);
+
+INSERT into kustos ( ime, prezime, oib, djelo, izlozba)
+values ('Mario', 'Marić', '82774076083', 3, 3);
+
+INSERT into kustos ( ime, prezime, oib, djelo, izlozba)
+values ('Branko', 'Brnić', '82774076083', 4, 4);
+
+INSERT into kustos ( ime, prezime, oib, djelo, izlozba)
+values ('Marija', 'Kikiriki', '82774076083', 5, 5);
+
+## GG ##
+
 
