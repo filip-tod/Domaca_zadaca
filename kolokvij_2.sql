@@ -105,7 +105,87 @@ Alter table neprijatelj add foreign  key (cura) REFERENCES cura(sifra);
 
 Alter table brat add foreign  key (neprijatelj) REFERENCES neprijatelj(sifra);
 
+#decko
+
+insert into decko(sifra,  indeferentno ,vesta, asocijalno )
+values (null, 1, 'plava-vesta', 1 );
+
+insert into decko(sifra,  indeferentno ,vesta, asocijalno )
+values (null, 0, 'plava-vesta', 1 );
+
+insert into decko(sifra,  indeferentno ,vesta, asocijalno )
+values (null, 1, 'plava-vesta', 1 );
+
+#cura
+insert into cura ( sifra ,haljina,drugiputa ,suknja ,narukvica, introvetno ,majica, decko)
+VALUES (null, 'ljetna', '2010-10-10 00:00:00' , 'mini-suknja',2,1, 'plava', 1);
+
+insert into cura ( sifra ,haljina,drugiputa ,suknja ,narukvica, introvetno ,majica, decko)
+VALUES (null, 'zimska', '2012-10-10 00:00:01' , 'mini-suknja',3,0, 'plava', 2 );
+
+insert into cura ( sifra ,haljina,drugiputa ,suknja ,narukvica, introvetno ,majica, decko)
+VALUES (null, 'proljetna', '2011-10-10 00:02:00' , 'suknja',5,1, 'plava', 3);
 
 
+
+# neprijatelj
+
+insert into neprijatelj (haljina, modelnaocala, kuna , cura)
+VALUES ('Plava-haljina', 'ray-ban', '99.99', 1);
+
+insert into neprijatelj (haljina, modelnaocala, kuna , cura)
+VALUES ('žuta-haljina', 'Gucci', '88.99', 2);
+
+insert into neprijatelj (haljina, modelnaocala, kuna , cura)
+VALUES ('crna-haljina', 'Carrera', '120.99', 3);
+
+
+
+# zarucnica
+
+insert into zarucnica(narukvica,bojakose,novcanica,lipa,indeferentno)
+VALUES (1,'plava', '19.2', '11.99', 0 );
+
+insert into zarucnica(narukvica,bojakose,novcanica,lipa,indeferentno)
+VALUES (2,'plava', '19.2', '11.99', 0 );
+
+insert into zarucnica(narukvica,bojakose,novcanica,lipa,indeferentno)
+VALUES (2,'plava', '19.2', '11.99', 1 );
+
+
+-- # decko_zarucnica
+INSERT into decko_zarucnica (decko,zarucnica)
+values (1, 1);
+
+INSERT into decko_zarucnica (decko,zarucnica)
+values (2, 2);
+
+INSERT into decko_zarucnica (decko,zarucnica)
+values (3, 3);
+
+
+#svekar
+
+--  sifra int not null primary key auto_increment,
+--     stilfrizura VARCHAR(48),
+--     ogrlica int not null,
+--     asocijalno bit not null
+
+
+INSERT into svekar (sifra, ogrlica, asocijalno) 
+values(null, 1, 0);
+
+
+#30. travnja 2020.
+
+INSERT into prijatelj (treciputa, svekar)
+values ('2020-04-30 00:00:00', 1);
+
+
+-- ######. U tablici brat obrišite sve zapise čija je vrijednost kolone ogrlica 
+--####### različito od 14. 
+
+-- delete from brat
+-- where ogrlica != 14;
 
 
