@@ -108,4 +108,41 @@ values                     (null, 1, 2),
                            (null, 3, 3);
 
 
+-- UPDATE kolokvij_3.svekar
+-- SET novcanica=0, suknja='Osijek', bojakose=NULL, prsten=NULL;
+
+-- select * from svekar;
+
+
+-- INSERT INTO kolokvij_3.svekar
+-- (novcanica, suknja, bojakose, prsten, narukvica, cura)
+-- VALUES(16.2, 'kikiriki', NULL, NULL, 1, 5);
+
+
+-- DELETE FROM kolokvij_3.punica
+-- WHERE kratkamajica like '%ab%';
+
+-- select * from ostavljena o ;
+-- select majica from ostavljena where lipa != 9 or 10 or 20 or 30 or 35;
+
+
+-- on a. sifra = b.sifra 
+-- inner join prijatelj c 
+-- on b.sifra=c.sifra 
+-- inner join ostavljena d 
+-- on c.sifra=d.sifra 
+-- inner join snasa e 
+-- on d.sifra =e.sifra 
+-- inner join punica f 
+-- on e.sifra = f.sifra 
+-- where d.lipa !=91 and c.haljina like '%ba%'
+-- order by kuna desc,  snasa  ;
+
+
+-- select a.kuna , a.haljina 
+-- from prijatelj a inner join prijatelj_brat b 
+-- on a.sifra !=b.sifra ;
+
+
+
 

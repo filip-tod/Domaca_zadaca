@@ -182,10 +182,62 @@ INSERT into prijatelj (treciputa, svekar)
 values ('2020-04-30 00:00:00', 1);
 
 
+#neprijatelj
+
+
+INSERT INTO neprijatelj
+(majica, haljina, lipa, modelnaocala, kuna, jmbag, cura)
+VALUES(NULL, 'plava', NULL, 'kikiriki', 0, NULL, NULL);
+
+
+#brat
+INSERT INTO brat
+(suknja, ogrlica, asocijalno, neprijatelj)
+VALUES(NULL, 14, 1, 1);
+
+INSERT INTO kolokvij_2.brat
+(suknja, ogrlica, asocijalno, neprijatelj)
+VALUES(NULL, 13, 0, 1);
+
+
+INSERT INTO kolokvij_2.brat
+(suknja, ogrlica, asocijalno, neprijatelj)
+VALUES(NULL, 14, 0, 1);
+
+INSERT INTO kolokvij_2.brat
+(suknja, ogrlica, asocijalno, neprijatelj)
+VALUES(NULL, 15, 0, 1);
+
+
+
+
+
+
+
+
 -- ######. U tablici brat obrišite sve zapise čija je vrijednost kolone ogrlica 
 --####### različito od 14. 
 
 -- delete from brat
 -- where ogrlica != 14;
+
+
+
+-- select a.novcanica, f.haljina , g.neprijatelj 
+-- from zarucnica a inner join decko_zarucnica b 
+-- on a.sifra =b.sifra 
+-- inner join decko d 
+-- on b.sifra =d.sifra 
+-- inner join cura e 
+-- on d.sifra =e.sifra 
+-- inner join neprijatelj f 
+-- on e.sifra = f.sifra 
+-- inner join brat g 
+-- on f.sifra = g.sifra ;
+
+
+-- select a.vesta, a.asocijalno 
+-- from decko a left join decko_zarucnica b
+-- on a.sifra != b.sifra ;
 
 
