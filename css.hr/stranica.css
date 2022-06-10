@@ -1,0 +1,23 @@
+body {
+    background-color: rgb(36, 142, 177);
+    
+  }
+  
+  img{
+    width: 450px;
+    height: 300px;
+    transition: all 1s;
+  }
+  img:hover{
+    transform: scale(1.1);
+  }
+  .container{
+  flex-wrap: wrap;
+  }
+  .item {
+    align-self: flex-start;
+  }
+  .container{
+    display: flex
+    gap 10px 20px;
+  }

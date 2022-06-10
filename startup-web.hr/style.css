@@ -1,0 +1,35 @@
+body,
+html {
+    width: 100%;
+    height: 100%;
+    font-family: "Montserrat",  sans-serif;
+    background: url(header.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+h1{
+    font-size: 5rem;
+    color: #140101
+}
+
+.buffer{
+    height:20px;
+}
+
+.btn-xl{
+    background-color: #2904bb; /* Green */
+    border: 2px solid #eb0e0e;
+    color: rgb(37, 1, 1);
+    padding: 32px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: ruby-base-container;
+    font-size: 16px;
+    
+}
+
+.row{
+    height: max-content;
+}
