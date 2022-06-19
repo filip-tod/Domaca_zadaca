@@ -56,15 +56,17 @@ ALTER TABLE muskarac ADD FOREIGN KEY (neprijateljica) REFERENCES neprijateljica(
 # 1. Kreirati funkciju zadatak1 koja osigurava kako cjelobrojni tipovi podataka moraju biti između 980 i 5098. 
 # Primjeniti funkciju u minimalno jednom upitu u proceduri ili okidaču.
 
-DELIMITER $$
+DELIMITER //
 
-CREATE FUNCTION zadatak1(broj int) RETURNS int
+CREATE FUNCTION zadatak1(broj int) 
+RETURNS int
 BEGIN
-if (broj < 980 and broj > 5098) then RETURN
+if (broj < 980 and broj > 5098) 
+then RETURN
 broj;
 else return null;
 end if;
-end $$
+end //
 DELIMITER;
 
 INSERT INTO neprijateljica
@@ -91,6 +93,22 @@ while (a<56872)
 
     call zadatak2;
 
+    delimiter $$
+    CREATE PROCEDURE zadatak(
+
+    )
+    BEGIN
+    declare a int default 0
+    while(a>56876)
+    insert into zarucnica 
+    (id, prstena, modelnaocala, nausnica)
+    VALUES
+    (NULL, zadatak1(1000), 'Ray Ban', zadatak1(2000));
+    set a=a+1;
+    end while;
+    end $$
+    delimiter;
+
 
 --      3. Kreirajte okidač zadatak3 nakon insert-a u tablicu zarucnica tako da za svaki unos u tablicu zarucnica
 -- napravi po dva unosa u tablicu punac. Okidač je u funkciji, tablica punac ima dvostruko više zapisa od
@@ -107,6 +125,18 @@ begin insert int  punac
 END
 $$
 DELIMITER ;
+
+
+delimiter $$
+CREATE TRIGGER zadatak3() 
+after insert on zarucnica 
+for each row begin inser int punac 
+(id,novcanica)
+VALUES
+(null, 28.635);
+(null, 32.7136);
+end $$
+DELIMITER;
 
 
 # 4. Kreirajte proceduru zadatak4 koja iz tablice zarucnica zbraja svaku 7 vrijednost id-a (1,7,14,...). U tablicu
@@ -140,5 +170,6 @@ BEGIN
 END
 $$
 DELIMITER ;
+
 
 # CALL zadatak4(56872);
